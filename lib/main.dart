@@ -6,6 +6,9 @@ import 'package:hellokhan/widget/11.StackNAlignWidget/StackNAlignWidget.dart';
 import 'package:hellokhan/widget/12.ImageWidget/ImageWidget.dart';
 import 'package:hellokhan/widget/13.SpacerWidget/SpacerWidget.dart';
 import 'package:hellokhan/widget/14.DraggableDragTargetSizedBoxMaterial/DraggableDragTargetSizedBoxMaterial.dart';
+import 'package:hellokhan/widget/15.CustomAppBar/CustomAppBar.dart';
+import 'package:hellokhan/widget/16.CardWidget/CardWidget.dart';
+import 'package:hellokhan/widget/17.TextField/TextFieldWidget.dart';
 import 'package:hellokhan/widget/2.TextWidget/textWidget.dart';
 import 'package:hellokhan/widget/3.RowNColoumn/rowNColumn.dart';
 import 'package:hellokhan/widget/4.Container/Container.dart';
@@ -36,7 +39,9 @@ void main() {
       '/ImageWidget': (BuildContext context) => ImageWidget(),
       '/SpacerWidget': (BuildContext context) => SpacerWidget(),
       '/DraggableDragTargetSizedBoxMaterial': (BuildContext context) => DraggableDragTargetSizedBoxMaterial(),
-      
+      '/CustomAppBar': (BuildContext context) => CustomAppBar(),
+      '/CardWidget': (BuildContext context) => CardWidget(),
+      '/TextFieldWidget': (BuildContext context) => TextFieldWidget(),
     },
   ));
 }
@@ -67,6 +72,9 @@ class HelloKhan extends StatelessWidget {
             listItem(context, 'Image Widget', '/ImageWidget'),
             listItem(context, 'Spacer Widget', '/SpacerWidget'),
             listItem(context, 'Draggable Widget', '/DraggableDragTargetSizedBoxMaterial'),
+            listItem(context, 'Custom App Bar', '/CustomAppBar'),
+            listItem(context, 'Card Widget', '/CardWidget'),
+            listItem(context, 'TextField Widget', '/TextFieldWidget'),
             
           ],
         ),

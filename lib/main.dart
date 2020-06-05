@@ -1,10 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hellokhan/widget/1.HelloWidget/helloWidget.dart';
+import 'package:hellokhan/widget/10.FlexibleWidget/FlexibleWidget.dart';
+import 'package:hellokhan/widget/11.StackNAlignWidget/StackNAlignWidget.dart';
+import 'package:hellokhan/widget/12.ImageWidget/ImageWidget.dart';
+import 'package:hellokhan/widget/13.SpacerWidget/SpacerWidget.dart';
+import 'package:hellokhan/widget/14.DraggableDragTargetSizedBoxMaterial/DraggableDragTargetSizedBoxMaterial.dart';
 import 'package:hellokhan/widget/2.TextWidget/textWidget.dart';
 import 'package:hellokhan/widget/3.RowNColoumn/rowNColumn.dart';
 import 'package:hellokhan/widget/4.Container/Container.dart';
 import 'package:hellokhan/widget/5.StatelessnStatefull/StatelessnStateless.dart';
+import 'package:hellokhan/widget/6.AnonymousMethod/AnonymousMethod.dart';
+import 'package:hellokhan/widget/7.TextStyle/TextStyleWIdget.dart';
+import 'package:hellokhan/widget/8.ListNListVIew/ListNListView.dart';
+import 'package:hellokhan/widget/9.AnimatedContainerNGestureDetector/AnimatedContainerNGestureDetector.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -13,10 +22,21 @@ void main() {
     showSemanticsDebugger: false,
     routes: <String, WidgetBuilder>{
       '/hellowidget': (BuildContext context) => HelloWidget(),
-      '/textwidget':(BuildContext context) => TextWidget(),
-      '/rowncolumn':(BuildContext context) => RowNColumn(),
-      '/container':(BuildContext context) => ContainerWidget(),
-      '/statelesstatlefull':(BuildContext context) => StatelessNStatefull(),
+      '/textwidget': (BuildContext context) => TextWidget(),
+      '/rowncolumn': (BuildContext context) => RowNColumn(),
+      '/container': (BuildContext context) => ContainerWidget(),
+      '/statelesstatlefull': (BuildContext context) => StatelessNStatefull(),
+      '/AnonymousMethod': (BuildContext context) => AnonymousMethod(),
+      '/TextStyle': (BuildContext context) => TextStyleWidget(),
+      '/ListNListView': (BuildContext context) => ListNListView(),
+      '/AnimatedContainerNGestureDetector': (BuildContext context) =>
+          AnimatedContainerNGestureDetector(),
+      '/FlexibleWidget': (BuildContext context) => FlexibleWidget(),
+      '/StackNAlignWidget': (BuildContext context) => StackNAlignWidget(),
+      '/ImageWidget': (BuildContext context) => ImageWidget(),
+      '/SpacerWidget': (BuildContext context) => SpacerWidget(),
+      '/DraggableDragTargetSizedBoxMaterial': (BuildContext context) => DraggableDragTargetSizedBoxMaterial(),
+      
     },
   ));
 }
@@ -29,57 +49,48 @@ class HelloKhan extends StatelessWidget {
         title: Text("HelloWidget"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(left: 8.0,right: 8.0),
         child: ListView(
           children: <Widget>[
-            CupertinoButton.filled(
-              child: Text('Hello Widget'),
-              onPressed: () {
-                Navigator.pushNamed(context, '/hellowidget');
-              },
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            CupertinoButton.filled(
-              child: Text('Text Widget'),
-              onPressed: () {
-                Navigator.pushNamed(context, '/textwidget');
-              },
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            CupertinoButton.filled(
-              child: Text('Row & Column'),
-              onPressed: () {
-                Navigator.pushNamed(context, '/rowncolumn');
-              },
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            CupertinoButton.filled(
-              child: Text('Container'),
-              onPressed: () {
-                Navigator.pushNamed(context, '/container');
-              },
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            CupertinoButton.filled(
-              child: Text('Stateless & Statefull'),
-              onPressed: () {
-                Navigator.pushNamed(context, '/statelesstatlefull');
-              },
-            ),
-            SizedBox(
-              height: 8,
-            ),
+            listItem(context, 'Hello Widget', '/hellowidget'),
+            listItem(context, 'Text Widget', '/textwidget'),
+            listItem(context, 'Row & Column', '/rowncolumn'),
+            listItem(context, 'Container', '/container'),
+            listItem(context, 'Stateless & Statefull', '/statelesstatlefull'),
+            listItem(context, 'Anonymous Method', '/AnonymousMethod'),
+            listItem(context, 'Text Style', '/TextStyle'),
+            listItem(context, 'List & ListView', '/ListNListView'),
+            listItem(context, 'AnimatedContainer & GestureDetector',
+                '/AnimatedContainerNGestureDetector'),
+            listItem(context, 'Flexible Widget', '/FlexibleWidget'),
+            listItem(context, 'Stack & Align Widget', '/StackNAlignWidget'),
+            listItem(context, 'Image Widget', '/ImageWidget'),
+            listItem(context, 'Spacer Widget', '/SpacerWidget'),
+            listItem(context, 'Draggable Widget', '/DraggableDragTargetSizedBoxMaterial'),
+            
           ],
         ),
       ),
+    );
+  }
+
+  Widget listItem(BuildContext context, String tittle, String route) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SizedBox(
+          height: 8,
+        ),
+        CupertinoButton.filled(
+          child: Text(
+            tittle,
+            textAlign: TextAlign.center,
+          ),
+          onPressed: () {
+            Navigator.pushNamed(context, route);
+          },
+        ),
+      ],
     );
   }
 }

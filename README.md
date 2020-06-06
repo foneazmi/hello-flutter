@@ -1,8 +1,6 @@
 # hellokhan
 
 A new Flutter project.
-from this youtube channel.
-https://www.youtube.com/playlist?list=PLZQbl9Jhl-VACm40h5t6QMDB92WlopQmV
 
 ## Getting Started
 

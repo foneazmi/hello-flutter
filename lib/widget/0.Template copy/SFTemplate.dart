@@ -10,10 +10,10 @@ class _SFTemplateState extends State<SFTemplate> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello Widget'),
+        title: Text('Widget'),
       ),
       body: Center(
-        child: Text('Hello Widget'),
+        child: Text('Widget'),
       ),
     );
   }

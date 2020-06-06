@@ -6,10 +6,10 @@ class SLTemplate extends StatelessWidget {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello Widget'),
+        title: Text('Widget'),
       ),
       body: Center(
-        child: Text('Hello Widget'),
+        child: Text('Widget'),
       ),
     );
   }

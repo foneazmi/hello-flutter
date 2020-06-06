@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hellokhan/widget/1.HelloWidget/helloWidget.dart';
 import 'package:hellokhan/widget/10.FlexibleWidget/FlexibleWidget.dart';
@@ -9,7 +8,10 @@ import 'package:hellokhan/widget/14.DraggableDragTargetSizedBoxMaterial/Draggabl
 import 'package:hellokhan/widget/15.CustomAppBar/CustomAppBar.dart';
 import 'package:hellokhan/widget/16.CardWidget/CardWidget.dart';
 import 'package:hellokhan/widget/17.TextField/TextFieldWidget.dart';
+import 'package:hellokhan/widget/18.MediaQuery/SLTemplate.dart';
+import 'package:hellokhan/widget/19.InkWell/InkWellWidget.dart';
 import 'package:hellokhan/widget/2.TextWidget/textWidget.dart';
+import 'package:hellokhan/widget/20.Opacity/Opacity.dart';
 import 'package:hellokhan/widget/3.RowNColoumn/rowNColumn.dart';
 import 'package:hellokhan/widget/4.Container/Container.dart';
 import 'package:hellokhan/widget/5.StatelessnStatefull/StatelessnStateless.dart';
@@ -38,10 +40,14 @@ void main() {
       '/StackNAlignWidget': (BuildContext context) => StackNAlignWidget(),
       '/ImageWidget': (BuildContext context) => ImageWidget(),
       '/SpacerWidget': (BuildContext context) => SpacerWidget(),
-      '/DraggableDragTargetSizedBoxMaterial': (BuildContext context) => DraggableDragTargetSizedBoxMaterial(),
+      '/DraggableDragTargetSizedBoxMaterial': (BuildContext context) =>
+          DraggableDragTargetSizedBoxMaterial(),
       '/CustomAppBar': (BuildContext context) => CustomAppBar(),
       '/CardWidget': (BuildContext context) => CardWidget(),
       '/TextFieldWidget': (BuildContext context) => TextFieldWidget(),
+      '/MediaQuery': (BuildContext context) => MediaQueryWidget(),
+      '/InkWellWidget': (BuildContext context) => InkWellWidget(),
+      '/OpacityWidget': (BuildContext context) => OpacityWidget(),
     },
   ));
 }
@@ -53,43 +59,45 @@ class HelloKhan extends StatelessWidget {
       appBar: AppBar(
         title: Text("HelloWidget"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-        child: ListView(
-          children: <Widget>[
-            listItem(context, 'Hello Widget', '/hellowidget'),
-            listItem(context, 'Text Widget', '/textwidget'),
-            listItem(context, 'Row & Column', '/rowncolumn'),
-            listItem(context, 'Container', '/container'),
-            listItem(context, 'Stateless & Statefull', '/statelesstatlefull'),
-            listItem(context, 'Anonymous Method', '/AnonymousMethod'),
-            listItem(context, 'Text Style', '/TextStyle'),
-            listItem(context, 'List & ListView', '/ListNListView'),
-            listItem(context, 'AnimatedContainer & GestureDetector',
-                '/AnimatedContainerNGestureDetector'),
-            listItem(context, 'Flexible Widget', '/FlexibleWidget'),
-            listItem(context, 'Stack & Align Widget', '/StackNAlignWidget'),
-            listItem(context, 'Image Widget', '/ImageWidget'),
-            listItem(context, 'Spacer Widget', '/SpacerWidget'),
-            listItem(context, 'Draggable Widget', '/DraggableDragTargetSizedBoxMaterial'),
-            listItem(context, 'Custom App Bar', '/CustomAppBar'),
-            listItem(context, 'Card Widget', '/CardWidget'),
-            listItem(context, 'TextField Widget', '/TextFieldWidget'),
-            
-          ],
-        ),
+      body: ListView(
+        children: <Widget>[
+          listItem(context, 'Hello Widget', '/hellowidget'),
+          listItem(context, 'Text Widget', '/textwidget'),
+          listItem(context, 'Row & Column', '/rowncolumn'),
+          listItem(context, 'Container', '/container'),
+          listItem(context, 'Stateless & Statefull', '/statelesstatlefull'),
+          listItem(context, 'Anonymous Method', '/AnonymousMethod'),
+          listItem(context, 'Text Style', '/TextStyle'),
+          listItem(context, 'List & ListView', '/ListNListView'),
+          listItem(context, 'Animated Container & GestureDetector',
+              '/AnimatedContainerNGestureDetector'),
+          listItem(context, 'Flexible Widget', '/FlexibleWidget'),
+          listItem(context, 'Stack & Align Widget', '/StackNAlignWidget'),
+          listItem(context, 'Image Widget', '/ImageWidget'),
+          listItem(context, 'Spacer Widget', '/SpacerWidget'),
+          listItem(context, 'Draggable Widget',
+              '/DraggableDragTargetSizedBoxMaterial'),
+          listItem(context, 'Custom App Bar', '/CustomAppBar'),
+          listItem(context, 'Card Widget', '/CardWidget'),
+          listItem(context, 'TextField Widget', '/TextFieldWidget'),
+          listItem(context, 'MediaQuery Widget', '/MediaQuery'),
+          listItem(context, 'InkWell Widget', '/InkWellWidget'),
+          listItem(context, 'Opacity Widget', '/OpacityWidget'),
+          
+        ],
       ),
     );
   }
 
   Widget listItem(BuildContext context, String tittle, String route) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SizedBox(
           height: 8,
         ),
-        CupertinoButton.filled(
+        RaisedButton(
+          shape: StadiumBorder(),
+          color: Colors.amber,
           child: Text(
             tittle,
             textAlign: TextAlign.center,
